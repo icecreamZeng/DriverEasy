@@ -1,38 +1,6 @@
-import util from '@ohos.util';
-
 @Entry
 @Component
 struct Index {
-  @State totalQuestions: number = 0
-  @State subject1Count: number = 0
-  @State subject4Count: number = 0
-  @State loading: boolean = true
-
-  aboutToAppear(): void {
-    this.loadQuestionStats()
-  }
-
-  async loadQuestionStats(): Promise<void> {
-    try {
-      // 从 rawfile 加载题库 JSON
-      const context = getContext(this)
-      const mgr = context.resourceManager
-      const rawFile = await mgr.getRawFileContent('questions.json')
-      const decoder = util.TextDecoder.create('utf-8')
-      const text = decoder.decodeWithStream(rawFile.buffer)
-      const data = JSON.parse(text)
-
-      const questions: QuestionData[] = data.questions || data
-      this.totalQuestions = questions.length
-      this.subject1Count = questions.filter((q: QuestionData) => q.subject === 1).length
-      this.subject4Count = questions.filter((q: QuestionData) => q.subject === 4).length
-    } catch (e) {
-      console.error('加载题库失败:', JSON.stringify(e))
-    } finally {
-      this.loading = false
-    }
-  }
-
   build() {
     Column() {
       // 标题区
@@ -51,46 +19,37 @@ struct Index {
       .margin({ top: 48 })
 
       // 统计卡片
-      if (this.loading) {
-        LoadingProgress()
-          .width(32).height(32)
-          .color('#ff007aff')
-          .margin({ top: 48 })
-      } else {
-        Column() {
-          // 总题数
+      Column() {
+        // 总题数
+        StatsCard({
+          icon: '📚',
+          label: '题库总量',
+          value: '4378',
+          sub: '科目一 + 科目四'
+        })
+
+        Row() {
           StatsCard({
-            icon: '📚',
-            label: '题库总量',
-            value: `${this.totalQuestions}`,
-            sub: '科目一 + 科目四'
+            icon: '🛣\u{FE0F}',
+            label: '科目一',
+            value: '2545',
+            sub: '道路交通安全法律'
           })
+            .layoutWeight(1)
 
-          Row() {
-            // 科目一
-            StatsCard({
-              icon: '🛣️',
-              label: '科目一',
-              value: `${this.subject1Count}`,
-              sub: '道路交通安全法律'
-            })
-              .layoutWeight(1)
-
-            // 科目四
-            StatsCard({
-              icon: '🚦',
-              label: '科目四',
-              value: `${this.subject4Count}`,
-              sub: '安全文明驾驶'
-            })
-              .layoutWeight(1)
-          }
-          .margin({ top: 12 })
+          StatsCard({
+            icon: '🚦',
+            label: '科目四',
+            value: '1833',
+            sub: '安全文明驾驶'
+          })
+            .layoutWeight(1)
         }
-        .width('100%')
-        .padding(16)
-        .margin({ top: 24 })
+        .margin({ top: 12 })
       }
+      .width('100%')
+      .padding(16)
+      .margin({ top: 24 })
 
       // 操作按钮
       Column() {
@@ -177,15 +136,4 @@ struct StatsCard {
     .borderRadius(12)
     .shadow({ radius: 4, color: '#0d000000', offsetX: 0, offsetY: 2 })
   }
-}
-
-// 题库数据类型
-interface QuestionData {
-  subject: number
-  id: number
-  type: number
-  question: string
-  options: string[]
-  answer: string
-  explanation: string
 }
