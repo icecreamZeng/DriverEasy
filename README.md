@@ -1,49 +1,106 @@
-# DriverEasy 🚗
+<p align="center">
+  <img src="https://img.shields.io/badge/HarmonyOS_Next-000000?style=for-the-badge" alt="HarmonyOS Next"/>
+  <img src="https://img.shields.io/badge/ArkTS-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="ArkTS"/>
+  <img src="https://img.shields.io/github/license/icecreamZeng/DriverEasy?style=for-the-badge" alt="License"/>
+  <img src="https://img.shields.io/github/last-commit/icecreamZeng/DriverEasy?style=for-the-badge" alt="Last Commit"/>
+</p>
 
-> 鸿蒙（HarmonyOS）科目一 AI 刷题 App
+<h1 align="center">🚗 DriverEasy</h1>
+<p align="center"><b>鸿蒙原生 · 驾照科目一 · AI 智能刷题</b></p>
 
-## 概述
+<p align="center">
+  <img src="https://img.shields.io/badge/API-12%2B-00B96B?style=flat-square"/>
+  <img src="https://img.shields.io/badge/题库-4378%20题-FF6B6B?style=flat-square"/>
+  <img src="https://img.shields.io/badge/鸿蒙-纯血版-000000?style=flat-square"/>
+  <img src="https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square"/>
+</p>
 
-DriverEasy 是一款基于 **HarmonyOS Next** 开发的驾照科目一考试辅助学习 App。利用 AI（DeepSeek API）实现个性化错题突破，帮助考生高效备考。
+---
 
-## 功能
+## 📖 简介
 
-- **全题库覆盖** — 4378 道科目一试题，含判断题、单选题、多选题
-- **随机刷题** — 按章节、难度、错题率筛选练习
-- **智能重点突破** — AI 分析薄弱知识点，针对性出题
-- **错题本** — 自动记录错题，支持反复练习
-- **模拟考试** — 随机组卷，模拟真实考试环境
-- **自动更新题库** — 题库从 GitHub 在线拉取，无需手动更新
+**DriverEasy** 是一款基于 HarmonyOS Next（纯血鸿蒙）开发的驾照科目一考试辅助学习 App。覆盖 4,378 道官方题库，结合 AI 能力实现个性化错题突破，让备考更高效。
 
-## 题库数据
+> 还在用纸质书刷题？该换种方式了 🎯
 
-每道题包含：
-| 字段 | 说明 |
+## ✨ 功能一览
+
+| 功能 | 说明 |
 |------|------|
-| question | 题目文本 |
-| options | 选项列表（A/B/C/D） |
-| answer | 正确答案 |
-| type | 题型（1=单选, 2=多选, 3=判断） |
-| chapter | 章节分类 |
-| difficulty | 难度等级（1-5） |
-| errorRate | 历史错题率 |
-| explanation | 答案解析 |
-| hasImage | 是否包含图片 |
+| 📚 **全题库** | 4,378 题覆盖科目一全部考点（判断 / 单选 / 多选） |
+| 🎲 **智能刷题** | 按章节、难度、错题率自由筛选 |
+| 🤖 **AI 重点突破** | 自动分析薄弱知识点，针对性强化训练 |
+| 📕 **错题本** | 自动收录错题，反复练习直到掌握 |
+| 📝 **模拟考试** | 随机组卷 100 题，模拟真实考场 |
+| 🔄 **在线更新** | 题库云端同步，新增题目自动拉取 |
+| 📊 **学习统计** | 正确率曲线、薄弱章节、错题分布一目了然 |
 
-数据来源：[doupoa/DrivingTestSubjectOne](https://github.com/doupoa/DrivingTestSubjectOne)
+## 🚀 快速开始
 
-## 技术栈
+### 环境要求
 
-- **语言**：ArkTS（HarmonyOS）
-- **IDE**：DevEco Studio
-- **AI 辅助**：OpenCode + DeepSeek API
-- **题库存储**：GitHub 在线 JSON
+- DevEco Studio 5.0+
+- HarmonyOS SDK API 12+
+- 鸿蒙真机或模拟器
 
-## 开发环境
+### 构建
 
-- macOS (M1) + DevEco Studio
-- 真机调试：鸿蒙手机 + 开发者账号
+```bash
+# 克隆项目
+git clone https://github.com/icecreamZeng/DriverEasy.git
 
-## 许可证
+# 用 DevEco Studio 打开项目根目录
+# 同步依赖 → 运行
+```
 
-MIT
+> 首次运行会自动从 GitHub 拉取最新题库数据。
+
+## 🧩 技术栈
+
+| 层 | 技术 |
+|------|------|
+| 编程语言 | ArkTS |
+| 系统框架 | HarmonyOS Next |
+| 开发工具 | DevEco Studio |
+| AI 引擎 | 大模型 API |
+| 数据存储 | GitHub 在线 JSON |
+| 设计体系 | HarmonyOS Design |
+
+## 📦 题库说明
+
+### 数据格式
+
+```json
+{
+  "id": "201904101025192...",
+  "question": "驾驶机动车在道路上违反道路交通安全法的行为，属于什么行为？",
+  "options": ["违章行为", "违法行为", "过失行为", "违规行为"],
+  "answer": "B",
+  "type": 1,
+  "chapter": "15",
+  "difficulty": 3,
+  "errorRate": "6",
+  "explanation": "违反道路交通安全法就是违法行为。",
+  "hasImage": false
+}
+```
+
+### 题型分布
+
+| 类型 | 数量 | 占比 |
+|------|-----|------|
+| 判断题 | 2,245 | 51% |
+| 单选题 | 1,854 | 42% |
+| 多选题 | 279 | 7% |
+
+### 数据来源
+
+题库整理自 [doupoa/DrivingTestSubjectOne](https://github.com/doupoa/DrivingTestSubjectOne)，在此感谢原作者的整理工作。
+
+## 🤝 贡献
+
+欢迎 PR！如有新增题目或发现错误，请直接提 Issue 或 PR。
+
+## 📄 License
+
+MIT © icecreamZeng
