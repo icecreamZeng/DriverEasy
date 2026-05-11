@@ -6,7 +6,7 @@
 </p>
 
 <h1 align="center">🚗 DriverEasy</h1>
-<p align="center"><b>鸿蒙原生 · 驾照科目一 · AI 智能刷题</b></p>
+<p align="center"><b>鸿蒙原生 · 驾照理论 · AI 智能刷题</b></p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/API-12%2B-00B96B?style=flat-square"/>
@@ -77,6 +77,7 @@ git clone https://github.com/icecreamZeng/DriverEasy.git
   "options": ["违章行为", "违法行为", "过失行为", "违规行为"],
   "answer": "B",
   "type": 1,
+  "subject": 1,
   "chapter": "15",
   "difficulty": 3,
   "errorRate": "6",
