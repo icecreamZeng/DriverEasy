@@ -72,17 +72,24 @@ git clone https://github.com/icecreamZeng/DriverEasy.git
 
 ```json
 {
-  "id": "201904101025192...",
-  "question": "驾驶机动车在道路上违反道路交通安全法的行为，属于什么行为？",
-  "options": ["违章行为", "违法行为", "过失行为", "违规行为"],
-  "answer": "B",
-  "type": 1,
-  "subject": 1,
-  "chapter": "15",
-  "difficulty": 3,
-  "errorRate": "6",
-  "explanation": "违反道路交通安全法就是违法行为。",
-  "hasImage": false
+  "version": "2022-07",
+  "source": "doupoa/DrivingTestSubjectOne",
+  "totalQuestions": 4378,
+  "questions": [
+    {
+      "id": "201904101025192...",
+      "question": "驾驶机动车在道路上违反道路交通安全法的行为，属于什么行为？",
+      "options": ["违章行为", "违法行为", "过失行为", "违规行为"],
+      "answer": "B",
+      "type": 1,
+      "subject": 1,
+      "chapter": "15",
+      "difficulty": 3,
+      "errorRate": "6",
+      "explanation": "违反道路交通安全法就是违法行为。",
+      "hasImage": false
+    }
+  ]
 }
 ```
 
@@ -100,6 +107,19 @@ git clone https://github.com/icecreamZeng/DriverEasy.git
 |------|-----|------|------|
 | 🟢 科目一 | 2,545 | 58% | 判断 + 单选 |
 | 🔵 科目四 | 1,833 | 42% | 判断 + 单选 + 多选 |
+
+### 数据版本
+
+| 项目 | 内容 |
+|------|------|
+| 版本 | 2022-07（doupoa 快照） |
+| 科目一 | 2,545 题 |
+| 科目四 | 1,833 题 |
+| 合计 | 4,378 题 |
+
+### 时效性说明
+
+> ⏰ 题库数据最后一次更新于 **2022 年 7 月**。此后《道路交通安全违法行为记分管理办法》等法规有所调整，部分题目（如记分值、罚款金额）可能已过时。我们通过社区 PR 和 Issue 持续修正，**欢迎发现问题的同学直接提 PR 或 Issue**。
 
 ### 数据来源
 
