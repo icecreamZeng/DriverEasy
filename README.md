@@ -97,6 +97,8 @@ git clone https://github.com/icecreamZeng/DriverEasy.git
 
 题库整理自 [doupoa/DrivingTestSubjectOne](https://github.com/doupoa/DrivingTestSubjectOne)，在此感谢原作者的整理工作。
 
+> ⚠️ **免责声明**：题库数据来源于互联网公开资源，仅供个人学习与交流使用。如涉及侵权，请联系删除（提 Issue 或 PR 即可），我们会在收到通知后第一时间处理。
+
 ## 🤝 贡献
 
 欢迎 PR！如有新增题目或发现错误，请直接提 Issue 或 PR。
